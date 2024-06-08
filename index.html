@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anditya</title>
+    <!-- Link to Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <!-- SweetAlert CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
+  <!-- SweetAlert JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <style>
+    * {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+font-family: "Comic Sans MS", Monospace;
+background-image: url('/back.jpg');
+}
+
+nav {
+  padding: 5px 5%;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid black;
+  position: fixed;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+nav .logo img {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+nav .logo h1 {
+  font-size: 1.1rem;
+  background: linear-gradient(to right, #b927fc 0%, #2c64fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin-left: 1.5rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 95%;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+nav ul li a:hover {
+background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 1px;
+  background-color: #1f1f1f;
+  display: block;
+  margin: 7px auto;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid black;
+}
+.hamburger-active {
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.6s;
+  transform: rotate(45deg);
+}
+
+.hamburger-active .line:nth-child(2) {
+  width: 0px;
+}
+
+.hamburger-active .line:nth-child(1),
+.hamburger-active .line:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.hamburger-active .line:nth-child(1) {
+  transform: translateY(12px);
+}
+
+.hamburger-active .line:nth-child(3) {
+  transform: translateY(-5px) rotate(90deg);
+}
+
+.menubar {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 30%;
+  height: 100vh;
+  padding: 20% 0;
+background-color: rgba(255, 255, 255, 0.5);
+
+  transition: all 0.5s ease-in;
+  z-index: 2;
+}
+.active {
+  left: 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.menubar ul {
+  padding: 0;
+  list-style: none;
+}
+.menubar ul li {
+  margin-bottom: 32px;
+}
+
+.menubar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 95%;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.menubar ul li a:hover {
+  background-color: #f5f5f5;
+}
+@media screen and (max-width: 790px) {
+  .hamburger {
+    display: block;
+  }
+  nav ul {
+    display: none;
+  }
+}
+
+
+        .main-banner {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+
+        }
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-100%); }
+            66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+        .main-banner .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .main-banner .content h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .main-banner .content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .main-banner .content .consult-btn {
+            background-color: ;
+            color: white;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+
+        }
+                .search-bar select, .search-bar input[type="text"] {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid blue;
+            border-radius: 25px;
+        }
+        .search-bar button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid blue;
+            border-radius: 25px;
+            background-color: orange;
+            
+        }
+        .services {
+            text-align: center;
+            padding: 40px 20px;
+background-color: rgba(0, 0, 0, 0.5);
+color: white;
+border-radius: 15px;   
+}
+        .services h2 {
+            margin-bottom: 20px;
+        }
+        .services .service-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: -20px;
+            margin-top: -15px;
+            height: 170px;
+        }
+        .services .service-icons div {
+            margin: 0 20px;
+            text-align: center;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .services .service-icons div img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 60%;
+            border: 2px solid orange;
+            background-color: white;
+        }
+        .packages p {
+          color: orange;
+        }
+        .packages, .destinations {
+            padding: 40px 20px;
+            text-align: center;
+background-color: rgba(255, 255, 255, 0.5);
+
+        }
+        .packages h2, .destinations h2 {
+            margin-bottom: 20px;
+        }
+        .packages .package-list, .destinations .destination-list {
+            display: flex;
+            justify-content: center;
+        }
+        .packages .package-list div, .destinations .destination-list div {
+            margin: 0 20px;
+        }
+        .packages .package-list div img, .destinations .destination-list div img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border:2px solid orange;
+        }
+        .consult-btn {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .consult-btn:hover {
+            background-color: ;
+        }
+        .destinations {
+background-color: rgba(255, 255, 255, 0.5);
+        }
+        .bali-products-slider {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+
+        }
+        .slider-container1 {
+            display: flex;
+            transition: transform 0.5s ease;
+
+        }
+.slide1 {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+        .slide1 img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+
+        }
+        .product-info h3 {
+            margin-top: 0;
+        }
+        .product-info p {margin-bottom: 10px;
+        }
+        .product-info button {
+            background-color: #efb008bd;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-info button:hover {
+            background-color: #efb008;
+        }
+        
+        
+        .testimonials {
+    margin-top: 40px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+.testimonial-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.testimonial-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.navigation-dots {
+    margin-top: 10px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+.contact-details {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.contact-details h3 {
+    margin-bottom: 10px;
+}
+
+.contact-details p {
+    margin: 5px 0;
+}
+footer {
+    /* Tetapkan background color dan warna teks sesuai preferensi Anda */
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center; /* Mengatur teks rata tengah */
+    border-radius: 5px;
+}
+
+.footer-container {
+    /* Tetapkan max-width dan tata letak yang sesuai */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style untuk teks hak cipta */
+.copyright {
+    text-align: center; /* Mengatur teks hak cipta rata tengah */
+    margin-top: 20px; /* Atur margin atas agar terpisah dari konten lainnya */
+}
+
+.social-links {
+    text-align: center;
+    /* Mengatur teks "Follow Us" menjadi rata tengah */
+    
+}
+
+
+.button-63 {
+  text-decoration: none;
+    position: relative;
+    border: none;
+    font-size: 14px;
+    font-family: inherit;
+    color: #fff;
+    padding: 10px 20px;
+    line-height: 2em;
+    text-align: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 300%;
+    border-radius: 30px;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  .button-63:hover {
+    animation: ani 8s linear infinite;
+    border: none;
+  }
+
+  @keyframes ani {
+    0% {
+      background-position: 0%;
+    }
+
+    100% {
+      background-position: 400%;
+    }
+  }
+
+  .button-63:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 35px;
+    transition: 1s;
+  }
+
+  .button-63:hover::before {
+    filter: blur(20px);
+  }
+
+  .button-63:active {
+    background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  }
+.contact-us-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent; /* If you want the button itself to have no background */
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us-button img {
+    width: 80px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.contact-us-button:hover {
+    background-color: transparent; /* Change the background color on hover if needed */
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="logo" />
+    </div>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Services</a>
+      </li>
+      <li>
+        <a href="#">Blog</a>
+      </li>
+      <li>
+        <a href="#">Contact Us</a>
+      </li>
+    </ul>
+    <div class="hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </nav>
+
+  <!-- Slider -->
+
+  <div class="menubar">
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="#">Pelayanan</a>
+      </li>
+      <li>
+        <a href="#">Tentang Kami</a>
+      </li>
+      <li>
+        <a href="#">Hubungi Kami</a>
+      </li>
+            <li>
+        <a href="#">Reservasi</a>
+      </li>
+    </ul>
+  </div>
+  </br>
+    <br>
+
+  </br>
+
+    <div class="main-banner">
+        <div class="slides">
+            <div class="slide">
+                <img src="1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <div class="content">
+            <h1>Layanan Terbaik untuk Anda</h1>
+            <p>Honeymoon | Family Trip | Group Tour</p>
+          <a href="https://wa.me/6281216447149?text=Halo Anditya Travel , Ada hal yang ingin saya Tanyakan nih ???"><button class="button-63">Konsultasi Gratis</button>
+        </div>
+    </div>
+
+    <div class="search-bar">
+        <select>
+            <option>All Categories</option>
+        </select>
+        <select>
+            <option>All Destination</option>
+        </select>
+        <button><i class="fas fa-search"></i> &nbsp; &nbsp; Search</button>
+    </div>
+
+    <div class="services">
+        <h2 style="color: white;"><i style="color: silver;" class="fas fa-concierge-bell icon"></i> <u>Our Services</u></h2>
+        <p style="font-size: 13px; color: white;">✓ Pesan paket wisata, Travel & Holiday</p>
+        </br>
+        <div class="service-icons">
+            <div>
+                <img src="love.png" alt="Honeymoon">
+                <p><b>Honeymoon</b></p>
+            </div>
+            <div class="service-item">
+                <img src="set.png" alt="Group Tour">
+                <p><b>Tour</b></p>
+            </div>
+            <div class="service-item">
+                <img src="grup.jpg" alt="Sharing Trip">
+                <p style="font-size: 16px;"><b>Holiday</b></p>
+            </div>
+            <div class="service-item">
+                <img src="act.png" alt="Activities">
+                <p><b>Activities</b></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="packages">
+        <h2><i style="color: lightcoral;" class="fas fa-heart"></i> Honeymoon Packages</h2>
+        </br>
+        <div class="package-list">
+            <div>
+                <img src="bromo.png" alt="Bromo">
+                <p style="color:black;"><i style="color:red;" class="fas fa-map-marker-alt"></i> Bromo</p>
+            </div>
+            <div>
+                <img src="batu.jpg" alt="Kota Batu">
+                <p style="color:black;"> <i style="color:red;" class="fas fa-map-marker-alt"></i> Kota Batu</p>
+            </div>
+            <div>
+                <img src="malang.jpg" alt="Malang">
+                <p style="color:black;"> <i style="color:red;" class="fas fa-map-marker-alt"></i> Kota Malang</p>
+            </div>
+        </div>
+<button class="button-63" role="button"></b>Other Package</button>
+
+    </div>
+
+    <div class="destinations">
+        <h2><i style="color: red;"class="fas fa-map-signs"></i> Trending Destinations</h2>
+        <div class="destination-list">
+            <div>
+                <img src="1.jpg" alt="Destination 1">
+                <p>Destination 1</p>
+            </div>
+            <div>
+                <img src="2.jpg" alt="Destination 2">
+                <p>Destination 2</p>
+            </div>
+            <div>
+                <img src="3.jpg" alt="Destination 3">
+                <p>Destination 3</p>
+            </div>
+        </div>
+    </div>
+    <div class="bali-products-slider">
+        <div class="slider-container1">
+            <div class="slide1">
+                <img src="2.jpg" alt="Product 1">
+                <div class="product-info">
+                    <h3>Product 1 Title</h3>
+                    <p>Description of Product 1</p>
+                    <button>View Details</button>
+                </div>
+            </div>
+            <div class="slide1">
+                <img src="3.jpg" alt="Product 2">
+                <div class="product-info">
+                    <h3>Product 2 Title</h3>
+                    <p>Description of Product 2</p>
+                    <button>View Details</button>
+                </div>
+            </div>
+            
+                        <div class="slide1">
+                <img src="1.jpg" alt="Product 3">
+                <div class="product-info">
+                    <h3>Product 3 Title</h3>
+                    <p>Description of Product 3</p>
+                    <button>View Details</button>
+                </div>
+            </div>
+            <div class="slide1">
+                <img src="4.jpg" alt="Product 4">
+                <div class="product-info">
+                    <h3>Product 4 Title</h3>
+                    <p>Description of Product 4</p>
+                    <button>View Details</button>
+                </div>
+            </div>
+            <!-- Add more slides for other products -->
+        </div>
+    </div>
+<div class="testimonials">
+    <div class="testimonial-container">
+        <div class="testimonial-slide">
+            <div class="testimonial">
+                <p>Testimonial 1</p>
+            </div>
+            <div class="testimonial">
+                <p>Testimonial 2</p>
+            </div>
+            <div class="testimonial">
+                <p>Testimonial 3</p>
+            </div>
+            <div class="testimonial">
+                <p>Testimonial 4</p>
+            </div>
+            <div class="testimonial">
+                <p>Testimonial 5</p>
+            </div>
+            <div class="testimonial">
+                <p>Testimonial 6</p>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    
+    
+<footer>
+    <div class="footer-container">
+        <div class="contact-details">
+            <h3><i class="fas fa-phone"></i> Contact Us :</h3>
+            <p>Email: cs@andityatravel.com</p>
+            <p>Phone: +628799739999</p>
+            <p>Address: KarangPloso, Kab. Malang , Jawa timur</p>
+        </div>
+
+    </div>
+    <div class="copyright">
+        <p>&copy; 2024 Anditya. All rights reserved.</p>
+    </div>
+            <div class="social-links">
+            <h3>Follow Us</h3>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+</footer>
+</div>
+<!-- Contact Us Button -->
+<a href="https://wa.me/6281216447149?text=Halo Anditya Travel , Ada hal yang ingin saya Tanyakan nih ??? " class="contact-us-button">
+    <img src="cs.png" alt="Contact Us" />
+</a>
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    const showSlide = (index) => {
+      if (index >= totalSlides) {
+        index = 0;
+      } else if (index < 0) {
+        index = totalSlides - 1;
+      }
+      slides.forEach(slide => {
+        slide.style.transform = `translateX(-${index * 100}%)`;
+      });
+      slideIndex = index;
+    };
+
+    const nextSlide = () => {
+      showSlide(slideIndex + 1);
+    };
+
+    const prevSlide = () => {
+      showSlide(slideIndex - 1);
+    };
+
+    // Auto slide
+    let autoSlideInterval = setInterval(nextSlide, 3000); // 5 seconds
+
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(nextSlide, 3000); // Reset interval
+    };
+
+const mobileNav = document.querySelector(".hamburger");
+const navbar = document.querySelector(".menubar");
+
+const toggleNav = () => {
+  navbar.classList.toggle("active");
+  mobileNav.classList.toggle("hamburger-active");
+};
+mobileNav.addEventListener("click", () => toggleNav());
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const sliderContainer = document.querySelector(".slider-container1");
+    const slides = document.querySelectorAll(".slide1");
+    const slideWidth = slides[0].offsetWidth + parseInt(window.getComputedStyle(slides[0]).marginRight);
+    let currentPosition = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function updateSliderPosition() {
+        sliderContainer.style.transform = `translateX(-${currentPosition}px)`;
+    }
+
+    function goToSlide(index) {
+        currentPosition = index * slideWidth;
+        updateSliderPosition();
+    }
+
+    sliderContainer.addEventListener('touchstart', function(event) {
+        touchStartX = event.changedTouches[0].clientX;
+    });
+
+    sliderContainer.addEventListener('touchend', function(event) {
+        touchEndX = event.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > 50) { // Adjust swipe sensitivity here
+            if (swipeDistance > 0 && currentPosition > 0) {
+                currentPosition -= slideWidth;
+            } else if (swipeDistance < 0 && currentPosition < (slides.length - 1) * slideWidth) {
+                currentPosition += slideWidth;
+            }
+            updateSliderPosition();
+        }
+    }
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const testimonialContainer = document.querySelector(".testimonial-container");
+    const testimonialSlide = document.querySelector(".testimonial-slide");
+    const testimonials = document.querySelectorAll(".testimonial");
+    const navigationDots = document.querySelectorAll(".dot");
+    const slideWidth = testimonials[0].offsetWidth;
+    let currentPosition = 0;
+
+    function updateSliderPosition() {
+        testimonialSlide.style.transform = `translateX(-${currentPosition}px)`;
+    }
+
+    function setActiveDot(index) {
+        navigationDots.forEach(dot => dot.classList.remove("active"));
+        navigationDots[index].classList.add("active");
+    }
+
+    function goToSlide(index) {
+        currentPosition = index * slideWidth;
+        updateSliderPosition();
+        setActiveDot(index);
+    }
+
+    function nextSlide() {
+        if (currentPosition < (testimonials.length - 1) * slideWidth) {
+            currentPosition += slideWidth;
+        } else {
+            currentPosition = 0;
+        }
+        updateSliderPosition();
+        const index = currentPosition / slideWidth;
+        setActiveDot(index);
+    }
+
+    setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+
+    navigationDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            goToSlide(index);
+        });
+    });
+});
+
+
+document.querySelector('.search-bar button').addEventListener('click', function() {
+    Swal.fire({
+      title: 'Search',
+      text: 'Search functionality is not implemented yet!',
+      icon: 'info',
+      confirmButtonText: 'OK'
+    });
+  });
+  </script>
+</body>
+</html>
